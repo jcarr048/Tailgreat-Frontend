@@ -2,7 +2,7 @@ import './App.css'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
-import Nav from './components/Nav'
+import NavBar from './components/Nav'
 import { BASE_URL } from './globals'
 import {
   LoginHost,
@@ -88,8 +88,14 @@ const App = () => {
             }
           />
           <Route path="/registerUser" element={<RegisterUser />} />
-          <Route path="registerHost" element={<RegisterHost />} />
-          <Route path="about" element={<About />} />
+          <Route path="/registerHost" element={<RegisterHost />} />
+          <Route path="/about" element={<About />} />
+          <Route
+            path="/createTailgate"
+            element={<CreateTailgate host={host} />}
+          />
+          <Route path="/mytailgate" element={<MyTailgateUser user={user} />} />
+          <Route path="hostTailgate" element={<HostTailgate host={host} />} />
         </Routes>
       </main>
     </div>
