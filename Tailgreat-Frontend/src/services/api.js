@@ -3,7 +3,7 @@ import { BASE_URL } from '../globals'
 
 const Client = Axios.create({ baseURL: BASE_URL })
 
-client.interceptors.request.use(
+Client.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('token')
     if (token) {
@@ -13,3 +13,5 @@ client.interceptors.request.use(
   },
   (error) => Promise.reject(error)
 )
+
+export default Client

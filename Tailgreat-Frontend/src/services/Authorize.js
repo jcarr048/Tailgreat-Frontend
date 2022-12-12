@@ -1,6 +1,6 @@
 import Client from './api'
 
-export const RegisterUser = async (data) => {
+export const RegUser = async (data) => {
   try {
     const res = await Client.post('/users/register', data)
     return res.data
@@ -9,7 +9,7 @@ export const RegisterUser = async (data) => {
   }
 }
 
-export const RegisterHost = async (data) => {
+export const RegHost = async (data) => {
   try {
     const res = await Client.post('/hosts/register', data)
     return res.data
@@ -18,7 +18,7 @@ export const RegisterHost = async (data) => {
   }
 }
 
-export const LoginUser = async (data) => {
+export const LogUser = async (data) => {
   try {
     const res = await Client.post('/users/login', data)
     return res.data
@@ -27,7 +27,7 @@ export const LoginUser = async (data) => {
   }
 }
 
-export const LoginHost = async (data) => {
+export const LogHost = async (data) => {
   try {
     const res = await Client.post('/hosts/login', data)
     return res.data
@@ -56,6 +56,15 @@ export const UpdateFeedback = async (data) => {
 export const DeleteFeedback = async (data) => {
   try {
     const res = await Client.delete(`/feedback/${data}`)
+    return res.data
+  } catch (error) {
+    throw error
+  }
+}
+
+export const CheckSession = async () => {
+  try {
+    const res = await Client.get('/users/session')
     return res.data
   } catch (error) {
     throw error
