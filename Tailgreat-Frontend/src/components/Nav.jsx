@@ -1,6 +1,6 @@
-import React from 'react'
+import { NavLink } from "react-router-dom"
 
-const TestComponent = () => {
+const NavBar = ({}) => {
   return (
     <>
       <h1>TestComponent</h1>
