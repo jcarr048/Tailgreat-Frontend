@@ -14,7 +14,7 @@ const NavBar = ({ authenticated, user, host, handleLogout}) => {
     </div>
     )
   }
-  else (host) => {
+  else if (host) {
     hostOptions = (
       <div className="nav-text">
       <NavLink to="/" className='nav-link home'>Home</NavLink>
@@ -50,7 +50,7 @@ const NavBar = ({ authenticated, user, host, handleLogout}) => {
   </div>
 </div>
   )
-  else (host) => {
+  else if (host) {
     <div>
   <div className="header">
     <div className="header-text">TailGreat</div>

@@ -8,17 +8,13 @@ import LoginHost from './pages/LoginHost'
 import LoginUser from './pages/LoginUser'
 import MyTailgateUser from './pages/MyTailgateUser'
 import TailgateDetails from './pages/TailgateDetails'
+import RegisterUser from './pages/RegisterUser'
+import RegisterHost from './pages/RegisterHost'
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 import NavBar from './components/Nav'
 import { BASE_URL } from './globals'
-import {
-  LogHost,
-  LogUser,
-  RegHost,
-  RegUser,
-  CheckSession
-} from './services/Authorize'
+import { CheckSession } from './services/Authorize'
 
 const App = () => {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -119,7 +115,7 @@ const App = () => {
             element={<CreateTailgate host={host} />}
           />
           <Route
-            path="/mytailgate:user_id"
+            path="/mytailgate/:user_id"
             element={
               <MyTailgateUser user={user} authenticated={authenticated} />
             }
