@@ -40,18 +40,18 @@ const App = () => {
     navigate(`/tailgates/${selected.id}`)
   }
 
-  // const checkToken = async () => {
-  //   const user = await CheckSession()
-  //   setUser(user)
-  //   toggleAuthenticated(true)
-  // }
+  const checkToken = async () => {
+    const user = await CheckSession()
+    setUser(user)
+    toggleAuthenticated(true)
+  }
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem('token')
-  //   if (token) {
-  //     checkToken()
-  //   }
-  // }, [])
+  useEffect(() => {
+    const token = localStorage.getItem('token')
+    if (token) {
+      checkToken()
+    }
+  }, [])
 
   const handleLogOut = () => {
     setUser(null)

@@ -21,6 +21,7 @@ export const RegHost = async (data) => {
 export const LogUser = async (data) => {
   try {
     const res = await Client.post('/users/login', data)
+    localStorage.setItem('token', res.data.token)
     return res.data
   } catch (error) {
     throw error

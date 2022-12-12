@@ -6,9 +6,11 @@ const Home = (props) => {
         {props.tailgates.map((tailgate) => (
           <div className="tailgate-card" key={tailgate.id}>
             <div onClick={() => props.chooseTailgate(tailgate)}>
-              {tailgate.name}
-              {tailgate.lot}
-              {tailgate.image}
+              <img src={tailgate.image} alt="tailgate-img" />
+              <div className="tailgate-name">
+                Tailgate Name: {tailgate.tailgateName}
+              </div>
+              <div className="tailgate-lot">Tailgate Lot: {tailgate.lot}</div>
             </div>
           </div>
         ))}
