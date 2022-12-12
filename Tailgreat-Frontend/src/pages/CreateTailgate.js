@@ -1,5 +1,5 @@
 const CreateTailgate = () => {
-  ;<div></div>
+  return <div>Hi</div>
 }
 
 export default CreateTailgate

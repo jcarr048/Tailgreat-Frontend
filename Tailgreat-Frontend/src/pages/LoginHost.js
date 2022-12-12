@@ -1,5 +1,5 @@
 const LoginHost = () => {
-  ;<div></div>
+  return <div></div>
 }
 
 export default LoginHost

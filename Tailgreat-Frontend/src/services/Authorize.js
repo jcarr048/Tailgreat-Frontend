@@ -48,6 +48,7 @@ export const CreateFeedback = async (data) => {
 export const UpdateFeedback = async (data) => {
   try {
     const res = await Client.put(`/feedback/${data.id}`, data)
+    return res.data
   } catch (error) {
     throw error
   }

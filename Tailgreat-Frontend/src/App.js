@@ -1,5 +1,7 @@
 import './App.css'
+import { useEffect, useState } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
+import NavBar from './components/Nav'
 import Home from './pages/Home'
 import About from './pages/About'
 import CreateTailgate from './pages/CreateTailgate'
@@ -11,8 +13,6 @@ import TailgateDetails from './pages/TailgateDetails'
 import RegisterUser from './pages/RegisterUser'
 import RegisterHost from './pages/RegisterHost'
 import axios from 'axios'
-import { useEffect, useState } from 'react'
-import NavBar from './components/Nav'
 import { BASE_URL } from './globals'
 import { CheckSession } from './services/Authorize'
 
@@ -20,40 +20,44 @@ const App = () => {
   const [authenticated, toggleAuthenticated] = useState(false)
   const [user, setUser] = useState(null)
   const [host, setHost] = useState(null)
-  const [tailgateList, setTailgateList] = useState([])
+  const [tailgates, setTailgates] = useState([])
   // const [feedback, setFeedback] = useState(null)
   // const [editFeedback, setEditFeedback] = useState(null)
-  const [selectedTailgate, setSelectedTailgate] = useState(null)
+  const [selectedTailgate, setSelectedTailgate] = useState([])
 
-  let navigate = navigate()
+  let navigate = useNavigate()
 
   const getTailgates = async () => {
     const res = await axios.get(`${BASE_URL}/tailgates`)
-    setTailgateList(res.data)
+    setTailgates(res.data)
+  }
+  useEffect(() => {
+    getTailgates()
+  }, [])
+
+  const chooseTailgate = (selected) => {
+    setSelectedTailgate(selected)
+    navigate(`/tailgates/${selected.id}`)
   }
 
-  useEffect(() => {
-    const token = localStorage.getItem('token')
-    if (token) {
-      checkToken()
-    }
-  }, [])
+  // const checkToken = async () => {
+  //   const user = await CheckSession()
+  //   setUser(user)
+  //   toggleAuthenticated(true)
+  // }
+
+  // useEffect(() => {
+  //   const token = localStorage.getItem('token')
+  //   if (token) {
+  //     checkToken()
+  //   }
+  // }, [])
 
   const handleLogOut = () => {
     setUser(null)
     toggleAuthenticated(false)
     localStorage.clear()
   }
-
-  const checkToken = async () => {
-    const user = await CheckSession()
-    setUser(user)
-    toggleAuthenticated(true)
-  }
-
-  useEffect(() => {
-    getTailgates()
-  }, [])
 
   return (
     <div className="App">
@@ -70,12 +74,7 @@ const App = () => {
           <Route
             path="/"
             element={
-              <Home
-                user={user}
-                host={host}
-                authenticated={authenticated}
-                tailgateList={tailgateList}
-              />
+              <Home tailgates={tailgates} chooseTailgate={chooseTailgate} />
             }
           />
           <Route

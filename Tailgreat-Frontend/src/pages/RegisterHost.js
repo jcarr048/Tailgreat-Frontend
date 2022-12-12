@@ -1,5 +1,5 @@
 const RegisterHost = () => {
-  ;<div></div>
+  return <div>Hi</div>
 }
 
 export default RegisterHost
