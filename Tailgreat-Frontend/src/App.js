@@ -87,7 +87,7 @@ const App = () => {
             }
           />
           <Route
-            path="/loginHost"
+            path="/loginhost"
             element={
               <LoginHost
                 setHost={setHost}
