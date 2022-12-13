@@ -21,6 +21,7 @@ export const RegHost = async (data) => {
 export const LogUser = async (data) => {
   try {
     const res = await Client.post('/users/login', data)
+    console.log(res.data)
     localStorage.setItem('token', res.data.token)
     return res.data
   } catch (error) {
@@ -30,7 +31,8 @@ export const LogUser = async (data) => {
 
 export const LogHost = async (data) => {
   try {
-    const res = await Client.post('/hosts/login', data)
+    const res = await Client.post('/loginhost', data)
+    localStorage.setItem('token', res.data.token)
     return res.data
   } catch (error) {
     throw error
