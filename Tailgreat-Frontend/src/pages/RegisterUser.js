@@ -1,12 +1,25 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { RegUser } from '../services/Authorize'
-import { Link } from 'react-router-dom'
+import * as React from 'react'
+import Avatar from '@mui/material/Avatar'
+import Button from '@mui/material/Button'
+import CssBaseline from '@mui/material/CssBaseline'
+import TextField from '@mui/material/TextField'
+import FormControlLabel from '@mui/material/FormControlLabel'
+import Checkbox from '@mui/material/Checkbox'
+import Link from '@mui/material/Link'
+import Grid from '@mui/material/Grid'
+import Box from '@mui/material/Box'
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
+import Typography from '@mui/material/Typography'
+import Container from '@mui/material/Container'
+import { createTheme, ThemeProvider } from '@mui/material/styles'
 
 const Register = () => {
   const navigate = useNavigate()
   const initialState = {
-    username: '',
+    userame: '',
     email: '',
     password: '',
     confirmPassword: '',
@@ -25,7 +38,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     await RegUser({
-      username: formValues.username,
+      userame: formValues.username,
       email: formValues.email,
       password: formValues.password,
       firstName: formValues.firstName,
@@ -36,108 +49,127 @@ const Register = () => {
     navigate('/login')
   }
 
+  const theme = createTheme()
   return (
-    <div className="siginin col">
-      <div className="card-overlay">
-        <form className="col" onSubmit={handleSubmit}>
-          <label className="label" htmlFor="username">
-            Username
-          </label>
-          <input
-            className="input"
-            onChange={handleChange}
-            name="username"
-            type="text"
-            placeholder="footballfan12"
-            value={formValues.username}
-            required
-          />
-          <label className="label" htmlFor="email">
-            Email
-          </label>
-          <input
-            className="input"
-            onChange={handleChange}
-            name="email"
-            type="email"
-            placeholder="example@example.com"
-            value={formValues.email}
-            required
-          />
-          <label className="label" htmlFor="password">
-            Password
-          </label>
-          <input
-            className="input"
-            onChange={handleChange}
-            name="password"
-            type="password"
-            value={formValues.password}
-            required
-          />
-          <label className="label" htmlFor="password-confirm">
-            Password Confirmation
-          </label>
-          <input
-            className="input"
-            onChange={handleChange}
-            type="password"
-            name="password-confirm"
-            placeholder="Confirm Password"
-            value={formValues.confirmPassword}
-            required
-          />
-          <label className="label" htmlFor="firstName">
-            First Name
-          </label>
-          <input
-            className="input"
-            onChange={handleChange}
-            type="text"
-            name="firstName"
-            placeholder="Fred"
-            value={formValues.firstName}
-            required
-          />
-          <label className="label" htmlFor="lastName">
-            Last Name
-          </label>
-          <input
-            className="input"
-            onChange={handleChange}
-            type="text"
-            name="lastName"
-            placeholder="Football"
-            value={formValues.lastName}
-            required
-          />
-          <label className="label" htmlFor="age">
-            Age
-          </label>
-          <input
-            className="input"
-            onChange={handleChange}
-            type="integer"
-            name="age"
-            value={formValues.age}
-            required
-          ></input>
-          <button
-            disabled={
-              !formValues.email ||
-              (!formValues.password &&
-                formValues.confirmPassword === formValues.password)
-            }
+    <ThemeProvider theme={theme}>
+      <Container component="main" maxWidth="xs">
+        <CssBaseline />
+        <Box
+          sx={{
+            marginTop: 8,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center'
+          }}
+        >
+          <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
+            <LockOutlinedIcon />
+          </Avatar>
+          <Typography component="h1" variant="h5">
+            User Sign Up
+          </Typography>
+          <Box
+            component="form"
+            noValidate
+            onSubmit={handleSubmit}
+            sx={{ mt: 3 }}
           >
-            Register
-          </button>
-        </form>
-        <Link to={'/login'}>
-          <button>Already A User?</button>
-        </Link>
-      </div>
-    </div>
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  name="username"
+                  required
+                  onChange={handleChange}
+                  fullWidth
+                  id="username"
+                  label="Username"
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  name="firstName"
+                  required
+                  onChange={handleChange}
+                  fullWidth
+                  id="firstName"
+                  label="First Name"
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  required
+                  onChange={handleChange}
+                  fullWidth
+                  id="lastName"
+                  label="Last Name"
+                  name="lastName"
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  name="age"
+                  required
+                  onChange={handleChange}
+                  fullWidth
+                  id="age"
+                  label="Age. Must be 18+"
+                  autoFocus
+                />
+              </Grid>
+
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  onChange={handleChange}
+                  fullWidth
+                  id="email"
+                  label="Email Address"
+                  name="email"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <TextField
+                  required
+                  onChange={handleChange}
+                  fullWidth
+                  name="password"
+                  label="Password"
+                  type="password"
+                  id="password"
+                />
+              </Grid>
+              <Grid item xs={12}>
+                <FormControlLabel
+                  control={
+                    <Checkbox value="allowExtraEmails" color="primary" />
+                  }
+                  label="I want to receive inspiration, marketing promotions and updates via email."
+                />
+              </Grid>
+            </Grid>
+            <Link to="/login">
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Sign Up
+              </Button>
+            </Link>
+            <Grid container justifyContent="flex-end">
+              <Grid item>
+                <Link href="#" variant="body2">
+                  Already have an account? Sign in
+                </Link>
+              </Grid>
+            </Grid>
+          </Box>
+        </Box>
+      </Container>
+    </ThemeProvider>
   )
 }
-
 export default Register

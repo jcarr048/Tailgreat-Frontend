@@ -1,8 +1,6 @@
-// import { useState } from 'react'
-// import { useNavigate } from 'react-router-dom'
-// import { RegHost } from '../services/Authorize'
-// import { Link } from 'react-router-dom'
-
+import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { RegHost } from '../services/Authorize'
 import * as React from 'react'
 import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
@@ -18,36 +16,40 @@ import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 
-function Copyright(props) {
-  return (
-    <Typography
-      variant="body2"
-      color="text.secondary"
-      align="center"
-      {...props}
-    >
-      {'Copyright © '}
-      <Link color="inherit" href="https://mui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  )
-}
+const Register = () => {
+  const navigate = useNavigate()
+  const initialState = {
+    hostName: '',
+    email: '',
+    password: '',
+    confirmPassword: '',
+    firstName: '',
+    lastName: '',
+    age: ''
+  }
+  const [formValues, setFormValues] = useState({
+    initialState
+  })
 
-const theme = createTheme()
-
-export default function SignUp() {
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    const data = new FormData(event.currentTarget)
-    console.log({
-      email: data.get('email'),
-      password: data.get('password')
-    })
+  const handleChange = (e) => {
+    setFormValues({ ...formValues, [e.target.name]: e.target.value })
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    await RegHost({
+      hostName: formValues.hostName,
+      email: formValues.email,
+      password: formValues.password,
+      firstName: formValues.firstName,
+      lastName: formValues.lastName,
+      age: formValues.age
+    })
+    setFormValues(initialState)
+    navigate('/loginhost')
+  }
+
+  const theme = createTheme()
   return (
     <ThemeProvider theme={theme}>
       <Container component="main" maxWidth="xs">
@@ -64,7 +66,7 @@ export default function SignUp() {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign up
+            Host Sign up
           </Typography>
           <Box
             component="form"
@@ -75,9 +77,20 @@ export default function SignUp() {
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
-                  autoComplete="given-name"
+                  name="hostName"
+                  required
+                  onChange={handleChange}
+                  fullWidth
+                  id="hostName"
+                  label="Host User Name"
+                  autoFocus
+                />
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
                   name="firstName"
                   required
+                  onChange={handleChange}
                   fullWidth
                   id="firstName"
                   label="First Name"
@@ -87,32 +100,44 @@ export default function SignUp() {
               <Grid item xs={12} sm={6}>
                 <TextField
                   required
+                  onChange={handleChange}
                   fullWidth
                   id="lastName"
                   label="Last Name"
                   name="lastName"
-                  autoComplete="family-name"
                 />
               </Grid>
+              <Grid item xs={12} sm={6}>
+                <TextField
+                  name="age"
+                  required
+                  onChange={handleChange}
+                  fullWidth
+                  id="age"
+                  label="Age. Must be 18+"
+                  autoFocus
+                />
+              </Grid>
+
               <Grid item xs={12}>
                 <TextField
                   required
+                  onChange={handleChange}
                   fullWidth
                   id="email"
                   label="Email Address"
                   name="email"
-                  autoComplete="email"
                 />
               </Grid>
               <Grid item xs={12}>
                 <TextField
                   required
+                  onChange={handleChange}
                   fullWidth
                   name="password"
                   label="Password"
                   type="password"
                   id="password"
-                  autoComplete="new-password"
                 />
               </Grid>
               <Grid item xs={12}>
@@ -124,14 +149,16 @@ export default function SignUp() {
                 />
               </Grid>
             </Grid>
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              sx={{ mt: 3, mb: 2 }}
-            >
-              Sign Up
-            </Button>
+            <Link to="/">
+              <Button
+                type="submit"
+                fullWidth
+                variant="contained"
+                sx={{ mt: 3, mb: 2 }}
+              >
+                Sign Up
+              </Button>
+            </Link>
             <Grid container justifyContent="flex-end">
               <Grid item>
                 <Link href="#" variant="body2">
@@ -141,8 +168,8 @@ export default function SignUp() {
             </Grid>
           </Box>
         </Box>
-        <Copyright sx={{ mt: 5 }} />
       </Container>
     </ThemeProvider>
   )
 }
+export default Register
