@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom"
 
-const NavBar = ({ user, host, handleLogout}) => {
+const NavBar = ({ user, host, handleLogOut}) => {
   if (user)
   return (
 <div>
@@ -12,7 +12,7 @@ const NavBar = ({ user, host, handleLogout}) => {
       <NavLink to="/" className='nav-link home'>Home</NavLink>
       <NavLink to="/about" className='nav-link about'>About</NavLink>
       <NavLink to={`/mytailgate/${user.id}`} className='nav-link mytailgate'>My Tailgate</NavLink>
-      <NavLink onClick={handleLogout} to='/'
+      <NavLink onClick={handleLogOut} to='/'
       className='nav-link logout'>Log Out</NavLink>
     </div>
     </nav>
@@ -30,7 +30,8 @@ const NavBar = ({ user, host, handleLogout}) => {
       <NavLink to="/" className='nav-link home'>Home</NavLink>
       <NavLink to="/about" className='nav-link about'>About</NavLink>
       <NavLink to={`/hosttailgate/${host.id}`} className='nav-link hosttailgate'>My Tailgate</NavLink>
-      <NavLink onClick={handleLogout} to='/'
+      <NavLink to="/createtailgate" className='nav-link createtailgate'>Create New Tailgate</NavLink>
+      <NavLink onClick={handleLogOut} to='/'
       className='nav-link logout'>Log Out</NavLink>
       </div>
     </nav>

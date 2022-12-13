@@ -7,8 +7,6 @@ import Avatar from '@mui/material/Avatar'
 import Button from '@mui/material/Button'
 import CssBaseline from '@mui/material/CssBaseline'
 import TextField from '@mui/material/TextField'
-import FormControlLabel from '@mui/material/FormControlLabel'
-import Checkbox from '@mui/material/Checkbox'
 import Link from '@mui/material/Link'
 import Grid from '@mui/material/Grid'
 import Box from '@mui/material/Box'
@@ -61,7 +59,7 @@ const CreateTailgate = ({ host }) => {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Host Sign up
+            Tailgate Registration
           </Typography>
           <Box
             component="form"
@@ -70,77 +68,91 @@ const CreateTailgate = ({ host }) => {
             sx={{ mt: 3 }}
           >
             <Grid container spacing={2}>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={22} sm={14}>
                 <TextField
-                  name="hostName"
+                  name="image"
                   required
                   onChange={handleChange}
                   fullWidth
-                  id="hostName"
-                  label="Host User Name"
+                  id="image"
+                  label="Upload a picture of your tailgate!"
                   autoFocus
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={22} sm={14}>
                 <TextField
-                  name="firstName"
+                  name="tailgateName"
                   required
                   onChange={handleChange}
                   fullWidth
-                  id="firstName"
-                  label="First Name"
+                  id="tailgateName"
+                  label="What is your tailgate's name?"
                   autoFocus
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={22} sm={14}>
                 <TextField
+                  name="lot"
                   required
                   onChange={handleChange}
                   fullWidth
-                  id="lastName"
-                  label="Last Name"
-                  name="lastName"
+                  id="lot"
+                  label="Which lot are you located in?"
                 />
               </Grid>
-              <Grid item xs={12} sm={6}>
+              <Grid item xs={22} sm={14}>
                 <TextField
                   name="age"
                   required
                   onChange={handleChange}
                   fullWidth
                   id="age"
-                  label="Age. Must be 18+"
+                  label="How old must attendees be?"
                   autoFocus
                 />
               </Grid>
 
-              <Grid item xs={12}>
+              <Grid item xs={22} sm={14}>
                 <TextField
                   required
                   onChange={handleChange}
                   fullWidth
-                  id="email"
-                  label="Email Address"
-                  name="email"
+                  id="alcohol"
+                  label="What, if any, alcohol will you provide?"
+                  name="alcohol"
                 />
               </Grid>
-              <Grid item xs={12}>
+              <Grid item xs={22} sm={14}>
                 <TextField
                   required
                   onChange={handleChange}
                   fullWidth
-                  name="password"
-                  label="Password"
-                  type="password"
-                  id="password"
+                  name="description"
+                  label="Give a short description"
+                  type="description"
+                  id="description"
                 />
               </Grid>
-              <Grid item xs={12}>
-                <FormControlLabel
-                  control={
-                    <Checkbox value="allowExtraEmails" color="primary" />
-                  }
-                  label="I want to receive inspiration, marketing promotions and updates via email."
+              <Grid item xs={22} sm={14}>
+                <TextField
+                  required
+                  onChange={handleChange}
+                  fullWidth
+                  name="food"
+                  label="What food will be provided?"
+                  type="food"
+                  id="food"
+                />
+              </Grid>
+              <Grid item xs={22} sm={14}>
+                <TextField
+                  required
+                  onChange={handleChange}
+                  fullWidth
+                  name="games"
+                  label="What games will be provided?"
+                  type="games"
+                  id="games"
                 />
               </Grid>
             </Grid>
@@ -151,16 +163,9 @@ const CreateTailgate = ({ host }) => {
                 variant="contained"
                 sx={{ mt: 3, mb: 2 }}
               >
-                Sign Up
+                Create Tailgate!
               </Button>
             </Link>
-            <Grid container justifyContent="flex-end">
-              <Grid item>
-                <Link href="#" variant="body2">
-                  Already have an account? Sign in
-                </Link>
-              </Grid>
-            </Grid>
           </Box>
         </Box>
       </Container>
