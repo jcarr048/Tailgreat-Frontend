@@ -16,7 +16,7 @@ const TailgateDetails = (props) => {
 
   return (
     <Box sx={{ flexGrow: 2 }}>
-      <Grid container spacing={4} columns={1}>
+      <Grid container spacing={0}>
         <Grid key={props.selectedTailgate.id}>
           <Item className="image">
             <img src={props.selectedTailgate.image} alt="tailgate-img"></img>
@@ -24,6 +24,9 @@ const TailgateDetails = (props) => {
           <Item>{props.selectedTailgate.tailgateName}</Item>
           <Item>{props.selectedTailgate.lot}</Item>
           <Item>{props.selectedTailgate.age}</Item>
+          <Item>{props.selectedTailgate.description}</Item>
+          <Item>{props.selectedTailgate.food}</Item>
+          <Item>{props.selectedTailgate.games}</Item>
         </Grid>
       </Grid>
     </Box>

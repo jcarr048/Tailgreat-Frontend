@@ -121,7 +121,7 @@ const App = () => {
             }
           />
           <Route
-            path="/hosttailgate:host_id"
+            path="/hosttailgate/:host_id"
             element={<HostTailgate host={host} authenticated={authenticated} />}
           />
         </Routes>
