@@ -97,7 +97,7 @@ const App = () => {
             }
           />
           <Route
-            path="/:tailgate_id"
+            path="tailgates/:tailgate_id"
             element={
               <TailgateDetails
                 selectedTailgate={selectedTailgate}

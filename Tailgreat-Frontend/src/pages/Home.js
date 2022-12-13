@@ -16,7 +16,7 @@ const Home = (props) => {
     <Box sx={{ flexGrow: 1 }}>
       <Grid container spacing={4} columns={12}>
         {props.tailgates.map((tailgate) => (
-          <Grid item sm={6} key={tailgate.id}>
+          <Grid item xs="auto" key={tailgate.id}>
             <Item className="image">
               <img
                 src={tailgate.image}
