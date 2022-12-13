@@ -40,6 +40,13 @@ const App = () => {
     navigate(`/tailgates/${selected.id}`)
   }
 
+  const handleLogOut = () => {
+    setUser(null)
+    setHost(null)
+    toggleAuthenticated(false)
+    localStorage.clear()
+  }
+
   const checkToken = async () => {
     const user = await CheckSession()
     setUser(user)
@@ -52,12 +59,6 @@ const App = () => {
       checkToken()
     }
   }, [])
-
-  const handleLogOut = () => {
-    setUser(null)
-    toggleAuthenticated(false)
-    localStorage.clear()
-  }
 
   return (
     <div className="App">

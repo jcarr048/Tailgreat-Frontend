@@ -16,7 +16,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import Typography from '@mui/material/Typography'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 
-const LoginHost = ({ toggleAuthenticated, setUser }) => {
+const LoginHost = ({ toggleAuthenticated, setHost }) => {
   const navigate = useNavigate()
   const [formValues, setFormValues] = useState({
     hostName: '',
@@ -31,7 +31,7 @@ const LoginHost = ({ toggleAuthenticated, setUser }) => {
     e.preventDefault()
     const payload = await LogHost(formValues)
     setFormValues({ hostName: '', password: '' })
-    setUser(payload)
+    setHost(payload)
     toggleAuthenticated(true)
     navigate('/')
   }
