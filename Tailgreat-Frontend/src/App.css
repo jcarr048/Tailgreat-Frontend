@@ -1,3 +1,7 @@
 .image {
+    cursor: pointer;
+}
+
+Item {
     object-fit: contain;
 }

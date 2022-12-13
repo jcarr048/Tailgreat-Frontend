@@ -45,7 +45,9 @@ const NavBar = ({ user, host, handleLogOut}) => {
     <div className="header-text">TailGreat</div>
     <h2 className="username-display">Welcome Guest!</h2>
     <nav className="nav-container">
-    <div> <NavLink to="/about" className='nav-link about'>About</NavLink>
+    <div> 
+    <NavLink to="/" className='nav-link home'>Home</NavLink>
+      <NavLink to="/about" className='nav-link about'>About</NavLink>
       <NavLink to="/loginHost" className='nav-link loginhost'>Host Login</NavLink>
       <NavLink to="/registerHost" className='nav-link registerhost'>Register as a Host</NavLink>
       <NavLink to="/login" className='nav-link loginuser'>User Login</NavLink>
