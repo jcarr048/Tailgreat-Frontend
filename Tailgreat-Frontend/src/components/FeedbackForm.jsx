@@ -18,7 +18,7 @@ const FeedbackForm = ({ user, authenticated, feedbackFromState, handleFormChange
                 value={feedbackFromState.body}
                 onChange={handleFormChange}
                 name="feedback-body"
-                placeholder={'Review Tailgate'}
+                placeholder={'Comments Currently Disabled'}
                 />
                 <div className="rating-section">
                     <select
