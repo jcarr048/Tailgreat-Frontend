@@ -8,7 +8,7 @@ const NavBar = ({ user, host, handleLogOut}) => {
     <div className="header-text">TailGreat</div>
     <h2 className="username-display">Welcome {user.username}!</h2>
     <nav className="nav-container">
-    <div>
+    <div className="nav-text">
       <NavLink to="/" className='nav-link home'>Home</NavLink>
       <NavLink to="/about" className='nav-link about'>About</NavLink>
       <NavLink to={`/mytailgate/${user.id}`} className='nav-link mytailgate'>My Tailgate</NavLink>
@@ -26,7 +26,7 @@ const NavBar = ({ user, host, handleLogOut}) => {
     <div className="header-text">TailGreat</div>
     <h2 className="username-display">Welcome {host.hostName}!</h2>
     <nav className="nav-container">
-      <div>
+      <div className="nav-text">
       <NavLink to="/" className='nav-link home'>Home</NavLink>
       <NavLink to="/about" className='nav-link about'>About</NavLink>
       <NavLink to={`/hosttailgate/${host.id}`} className='nav-link hosttailgate'>My Tailgate</NavLink>
@@ -45,7 +45,7 @@ const NavBar = ({ user, host, handleLogOut}) => {
     <div className="header-text">TailGreat</div>
     <h2 className="username-display">Welcome Guest!</h2>
     <nav className="nav-container">
-    <div> 
+    <div className="nav-text"> 
     <NavLink to="/" className='nav-link home'>Home</NavLink>
       <NavLink to="/about" className='nav-link about'>About</NavLink>
       <NavLink to="/loginHost" className='nav-link loginhost'>Host Login</NavLink>
