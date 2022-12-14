@@ -8,7 +8,6 @@ import CreateTailgate from './pages/CreateTailgate'
 import HostTailgate from './pages/HostTailgate'
 import LoginHost from './pages/LoginHost'
 import LoginUser from './pages/LoginUser'
-import MyTailgateUser from './pages/MyTailgateUser'
 import TailgateDetails from './pages/TailgateDetails'
 import RegisterUser from './pages/RegisterUser'
 import RegisterHost from './pages/RegisterHost'
@@ -146,12 +145,6 @@ const App = () => {
           <Route
             path="/createtailgate"
             element={<CreateTailgate host={host} />}
-          />
-          <Route
-            path="/mytailgate/:user_id"
-            element={
-              <MyTailgateUser user={user} authenticated={authenticated} />
-            }
           />
           <Route
             path="/hosttailgate/:host_id"
