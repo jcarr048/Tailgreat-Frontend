@@ -69,3 +69,17 @@ body {
     width: 20vw;
     height: 20vw;
 }
+
+.about-page {
+    font-size: 25px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.pfp {
+    object-fit: cover;
+    width: 28vw;
+    height: 28vw;
+    text-align: center;
+    padding: 1vw;
+    cursor: pointer;
+  }
