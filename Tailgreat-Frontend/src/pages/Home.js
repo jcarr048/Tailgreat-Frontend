@@ -8,7 +8,7 @@ const Home = (props) => {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#800020' : '#fff',
     ...theme.typography.body2,
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     textAlign: 'center',
     color: '#800020'
   }))
@@ -17,7 +17,7 @@ const Home = (props) => {
       <Grid
         container
         my={4}
-        spacing={4}
+        spacing={3}
         columns={12}
         direction="row"
         justifyContent="center"
