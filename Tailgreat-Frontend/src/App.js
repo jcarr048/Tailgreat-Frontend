@@ -14,7 +14,11 @@ import RegisterUser from './pages/RegisterUser'
 import RegisterHost from './pages/RegisterHost'
 import axios from 'axios'
 import { BASE_URL } from './globals'
-import { CheckSession } from './services/Authorize'
+import {
+  CheckSession,
+  CreateFeedback,
+  UpdateFeedback
+} from './services/Authorize'
 import UpdateTailgate from './pages/UpdateTailgate'
 
 const App = () => {
@@ -22,8 +26,8 @@ const App = () => {
   const [user, setUser] = useState(null)
   const [host, setHost] = useState(null)
   const [tailgates, setTailgates] = useState([])
-  // const [feedback, setFeedback] = useState(null)
-  // const [editFeedback, setEditFeedback] = useState(null)
+  const [feedback, setFeedback] = useState(null)
+  const [editFeedback, setEditFeedback] = useState(null)
   const [selectedTailgate, setSelectedTailgate] = useState([])
 
   let navigate = useNavigate()
@@ -60,6 +64,35 @@ const App = () => {
       checkToken()
     }
   }, [])
+
+  const initialFeedbackState = {
+    userId: '',
+    body: '',
+    rating: '',
+    tailgateId: ''
+  }
+
+  const [feedbackFromState, setFeedbackFromState] =
+    useState(initialFeedbackState)
+
+  const handleFormChange = (e) => {
+    setFeedbackFromState({
+      ...feedbackFromState,
+      [e.target.id]: e.target.value,
+      user_id: user.id,
+      tailgate_id: selectedTailgate.id
+    })
+  }
+
+  const handleFeedbackSubmit = async (e) => {
+    e.preventDefault()
+    await CreateFeedback({
+      userId: user.id,
+      body: feedbackFromState.body,
+      rating: feedbackFromState.rating,
+      tailgateId: selectedTailgate.id
+    })
+  }
 
   return (
     <div className="App">
@@ -105,6 +138,9 @@ const App = () => {
                 authenticated={authenticated}
                 user={user}
                 host={host}
+                handleFeedbackSubmit={handleFeedbackSubmit}
+                feedbackFromState={feedbackFromState}
+                handleFormChange={handleFormChange}
               />
             }
           />

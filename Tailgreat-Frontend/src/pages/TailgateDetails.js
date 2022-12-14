@@ -4,6 +4,7 @@ import { experimentalStyled as styled } from '@mui/material/styles'
 import Box from '@mui/material/Box'
 import Paper from '@mui/material/Paper'
 // import { useNavigate } from 'react-router-dom'
+import FeedbackForm from '../components/FeedbackForm'
 
 const TailgateDetails = (props) => {
   const Item = styled(Paper)(({ theme }) => ({
@@ -29,6 +30,13 @@ const TailgateDetails = (props) => {
           <Item>{props.selectedTailgate.games}</Item>
         </Grid>
       </Grid>
+      <FeedbackForm
+        user={props.user}
+        authenticated={props.authenticated}
+        handleFormChange={props.handleFormChange}
+        handleFormSubmit={props.handleFormSubmit}
+        feedbackFromState={props.feedbackFromState}
+      />
     </Box>
   )
 }
