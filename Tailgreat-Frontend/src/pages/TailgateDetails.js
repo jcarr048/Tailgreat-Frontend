@@ -39,12 +39,12 @@ const TailgateDetails = (props) => {
               alt="tailgate-img"
             ></img>
           </Item>
-          <Item>{props.selectedTailgate.tailgateName}</Item>
-          <Item>{props.selectedTailgate.lot}</Item>
-          <Item>{props.selectedTailgate.age}</Item>
-          <Item>{props.selectedTailgate.description}</Item>
-          <Item>{props.selectedTailgate.food}</Item>
-          <Item>{props.selectedTailgate.games}</Item>
+          <Item>Tailgate Name: {props.selectedTailgate.tailgateName}</Item>
+          <Item>Lot: {props.selectedTailgate.lot}</Item>
+          <Item>Age Required: {props.selectedTailgate.age}</Item>
+          <Item>Description: {props.selectedTailgate.description}</Item>
+          <Item>Food Provided: {props.selectedTailgate.food}</Item>
+          <Item>Games Provided: {props.selectedTailgate.games}</Item>
         </Grid>
       </Grid>
       <FeedbackForm

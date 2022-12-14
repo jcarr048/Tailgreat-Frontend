@@ -41,7 +41,7 @@ const FeedbackForm = ({ user, authenticated, feedbackFromState, handleFormChange
         </div>
     ) : (
         <div className="sign-in-required">
-            <h3 className="login-required">You must be logged in to leave feedback.</h3>
+            <h3 className="login-required">You must be logged in to leave feedback or reserve a spot with this tailgate.</h3>
             <Button variant="contained" onClick={() => navigate('/login')}>
             Login
           </Button>
