@@ -16,28 +16,31 @@ import Container from '@mui/material/Container'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
 
 const UpdateTailgate = ({ host }) => {
-  let { tailgate_id } = useParams()
-  const [formState, setFormState] = useState()
+  let { host_id } = useParams()
+  const [formState, setFormState] = useState({})
   const [tailgateDetails, setTailgateDetails] = useState([])
   const navigate = useNavigate()
 
   const UpdateTailgateDetails = async () => {
-    const res = await axios.get(`${BASE_URL}/tailgates/${tailgate_id}`)
+    const res = await axios.get(`${BASE_URL}/tailgates/${host_id}`)
     setTailgateDetails(res.data)
-    setFormState({
-      image: res.data.image,
-      tailgateName: res.data.tailgateName,
-      lot: res.data.lot,
-      age: res.data.age,
-      alcohol: res.data.alcohol,
-      description: res.data.description,
-      food: res.data.food,
-      games: res.data.games
-    })
   }
   useEffect(() => {
     UpdateTailgateDetails()
   }, [])
+
+  useEffect(() => {
+    setFormState({
+      image: tailgateDetails.image,
+      tailgateName: tailgateDetails.tailgateName,
+      lot: tailgateDetails.lot,
+      age: tailgateDetails.age,
+      alcohol: tailgateDetails.alcohol,
+      description: tailgateDetails.description,
+      food: tailgateDetails.food,
+      games: tailgateDetails.games
+    })
+  }, [tailgateDetails])
 
   const handleChange = (e) => {
     setFormState({ ...formState, [e.target.id]: e.target.value })
@@ -45,8 +48,8 @@ const UpdateTailgate = ({ host }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    await axios.put(`${BASE_URL}/tailgates/${tailgate_id}`, formState)
-    navigate('/hosttailgate/host_id')
+    await axios.put(`${BASE_URL}/tailgates/${host_id}`, formState)
+    navigate(`/hosttailgate/${host_id}`)
   }
 
   const theme = createTheme()
@@ -81,7 +84,7 @@ const UpdateTailgate = ({ host }) => {
                   required
                   fullWidth
                   id="image"
-                  value={formState.image}
+                  value={formState?.image}
                   onChange={handleChange}
                   autoFocus
                 />
@@ -91,7 +94,7 @@ const UpdateTailgate = ({ host }) => {
                   name="tailgateName"
                   fullWidth
                   id="tailgateName"
-                  value={formState.tailgateName}
+                  value={formState?.tailgateName}
                   onChange={handleChange}
                   autoFocus
                 />
@@ -100,7 +103,7 @@ const UpdateTailgate = ({ host }) => {
                 <TextField
                   name="lot"
                   required
-                  value={formState.lot}
+                  value={formState?.lot}
                   onChange={handleChange}
                   fullWidth
                   id="lot"
@@ -112,7 +115,7 @@ const UpdateTailgate = ({ host }) => {
                   required
                   fullWidth
                   id="age"
-                  value={formState.age}
+                  value={formState?.age}
                   onChange={handleChange}
                   autoFocus
                 />
@@ -123,7 +126,7 @@ const UpdateTailgate = ({ host }) => {
                   required
                   fullWidth
                   id="alcohol"
-                  value={formState.alcohol}
+                  value={formState?.alcohol}
                   onChange={handleChange}
                   name="alcohol"
                 />
@@ -133,7 +136,7 @@ const UpdateTailgate = ({ host }) => {
                   required
                   fullWidth
                   name="description"
-                  value={formState.description}
+                  value={formState?.description}
                   onChange={handleChange}
                   type="description"
                   id="description"
@@ -144,7 +147,7 @@ const UpdateTailgate = ({ host }) => {
                   required
                   fullWidth
                   name="food"
-                  value={formState.food}
+                  value={formState?.food}
                   onChange={handleChange}
                   type="food"
                   id="food"
@@ -155,7 +158,7 @@ const UpdateTailgate = ({ host }) => {
                   required
                   fullWidth
                   name="games"
-                  value={formState.games}
+                  value={formState?.games}
                   onChange={handleChange}
                   type="games"
                   id="games"
