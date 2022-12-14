@@ -35,8 +35,8 @@ const Home = (props) => {
               ></img>
             </Item>
             <Item>{tailgate.tailgateName}</Item>
-            <Item>{tailgate.lot}</Item>
-            <Item>{tailgate.age}</Item>
+            <Item>Lot: {tailgate.lot}</Item>
+            <Item>Age Required: {tailgate.age}</Item>
           </Grid>
         ))}
       </Grid>
