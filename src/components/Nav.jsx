@@ -11,7 +11,7 @@ const NavBar = ({ user, host, handleLogOut}) => {
     <div className="nav-text">
       <NavLink to="/" className='nav-link home'>Home</NavLink>
       <NavLink to="/about" className='nav-link about'>About</NavLink>
-      <NavLink to={`/mytailgate/${user.id}`} className='nav-link mytailgate'>My Tailgate</NavLink>
+      <NavLink to="/" className='nav-link mytailgate'>My Tailgate</NavLink>
       <NavLink onClick={handleLogOut} to='/'
       className='nav-link logout'>Log Out</NavLink>
     </div>

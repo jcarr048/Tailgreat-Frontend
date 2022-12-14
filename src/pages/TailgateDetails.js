@@ -12,24 +12,26 @@ const TailgateDetails = (props) => {
   // }
 
   const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    backgroundColor: 'white',
     ...theme.typography.body2,
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     textAlign: 'center',
-    color: theme.palette.text.secondary
+    fontFamily: 'Verdana',
+    textDecoration: 'solid',
+    color: '#800020'
   }))
 
   return (
-    <Box sx={{ flexGrow: 2 }}>
+    <Box sx={{ flexGrow: 2 }} bgcolor={'#D8D8D8'}>
       <Grid
         container
-        spacing={3}
-        my={3}
+        my={1}
+        spacing={1}
         direction="row"
-        columns={3}
-        rows={3}
-        alignItems="center"
         justifyContent="center"
+        alignItems="center"
+        object-fit="contain"
+        bgcolor={'#D8D8D8'}
       >
         <Grid key={props.selectedTailgate.id}>
           <Item>

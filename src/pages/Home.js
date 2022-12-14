@@ -6,25 +6,28 @@ import Paper from '@mui/material/Paper'
 
 const Home = (props) => {
   const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#800020' : '#fff',
+    backgroundColor: 'white',
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
+    fontFamily: 'Verdana',
+    textDecoration: 'solid',
     color: '#800020'
   }))
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid
         container
-        my={4}
-        spacing={3}
-        rows={12}
+        my={1}
+        spacing={1}
         direction="row"
         justifyContent="center"
         alignItems="center"
+        object-fit="contain"
+        bgcolor={'#D8D8D8'}
       >
         {props.tailgates.map((tailgate) => (
-          <Grid item xs zeroMinWidth key={tailgate.id}>
+          <Grid item xs={2.4} key={tailgate.id}>
             <Item>
               <img
                 className="image"

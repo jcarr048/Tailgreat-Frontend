@@ -32,26 +32,28 @@ const HostTailgate = () => {
   }
 
   const Item = styled(Paper)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+    backgroundColor: 'white',
     ...theme.typography.body2,
     padding: theme.spacing(1),
     textAlign: 'center',
-    color: theme.palette.text.secondary
+    fontFamily: 'Verdana',
+    textDecoration: 'solid',
+    color: '#800020'
   }))
 
   return (
     <Box sx={{ flexGrow: 1 }}>
       <Grid
         container
-        spacing={3}
-        my={3}
+        my={1}
+        spacing={1}
         direction="row"
-        columns={3}
-        rows={3}
-        alignItems="center"
         justifyContent="center"
+        alignItems="center"
+        object-fit="contain"
+        bgcolor={'#D8D8D8'}
       >
-        <Grid item xs zeroMinWidth key={tailgate.id}>
+        <Grid item xs={2.4} key={tailgate.id}>
           <Item>
             <img
               className="image"
@@ -66,7 +68,11 @@ const HostTailgate = () => {
           <Item>Food Provided: {tailgate?.food}</Item>
           <Item>Alcohol Provided: {tailgate?.alcohol}</Item>
           <Item>Games Provided: {tailgate?.games}</Item>
-          <Button variant="contained" onClick={() => deleteTailgate(tailgate)}>
+          <Button
+            variant="contained"
+            spacing={1}
+            onClick={() => deleteTailgate(tailgate)}
+          >
             Delete Tailgate
           </Button>
           <Button
