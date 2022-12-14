@@ -14,6 +14,7 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
 import Typography from '@mui/material/Typography'
 import Container from '@mui/material/Container'
 import { createTheme, ThemeProvider } from '@mui/material/styles'
+import InputLabel from '@mui/material/InputLabel'
 
 const UpdateTailgate = ({ host }) => {
   let { host_id } = useParams()
@@ -69,7 +70,7 @@ const UpdateTailgate = ({ host }) => {
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Tailgate Registration
+            Update Registration
           </Typography>
           <Box
             component="form"
@@ -79,6 +80,7 @@ const UpdateTailgate = ({ host }) => {
           >
             <Grid container spacing={2}>
               <Grid item xs={22} sm={14}>
+                <InputLabel>Tailgate Image</InputLabel>
                 <TextField
                   name="image"
                   required
@@ -90,6 +92,7 @@ const UpdateTailgate = ({ host }) => {
                 />
               </Grid>
               <Grid item xs={22} sm={14}>
+                <InputLabel>Tailgate Name</InputLabel>
                 <TextField
                   name="tailgateName"
                   fullWidth
@@ -100,6 +103,7 @@ const UpdateTailgate = ({ host }) => {
                 />
               </Grid>
               <Grid item xs={22} sm={14}>
+                <InputLabel>Tailgate Lot</InputLabel>
                 <TextField
                   name="lot"
                   required
@@ -110,6 +114,7 @@ const UpdateTailgate = ({ host }) => {
                 />
               </Grid>
               <Grid item xs={22} sm={14}>
+                <InputLabel>Age Required</InputLabel>
                 <TextField
                   name="age"
                   required
@@ -122,6 +127,7 @@ const UpdateTailgate = ({ host }) => {
               </Grid>
 
               <Grid item xs={22} sm={14}>
+                <InputLabel>Alochol Provided</InputLabel>
                 <TextField
                   required
                   fullWidth
@@ -132,6 +138,7 @@ const UpdateTailgate = ({ host }) => {
                 />
               </Grid>
               <Grid item xs={22} sm={14}>
+                <InputLabel>Description</InputLabel>
                 <TextField
                   required
                   fullWidth
@@ -143,6 +150,7 @@ const UpdateTailgate = ({ host }) => {
                 />
               </Grid>
               <Grid item xs={22} sm={14}>
+                <InputLabel>Food Provided</InputLabel>
                 <TextField
                   required
                   fullWidth
@@ -154,6 +162,7 @@ const UpdateTailgate = ({ host }) => {
                 />
               </Grid>
               <Grid item xs={22} sm={14}>
+                <InputLabel>Games Provided</InputLabel>
                 <TextField
                   required
                   fullWidth
