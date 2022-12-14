@@ -69,6 +69,12 @@ const HostTailgate = () => {
           <Button variant="contained" onClick={() => deleteTailgate(tailgate)}>
             Delete Tailgate
           </Button>
+          <Button
+            variant="contained"
+            onClick={() => navigate(`/updatetailgate/${host_id}`)}
+          >
+            Update Tailgate
+          </Button>
         </Grid>
       </Grid>
     </Box>

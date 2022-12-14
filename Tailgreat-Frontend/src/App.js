@@ -15,6 +15,7 @@ import RegisterHost from './pages/RegisterHost'
 import axios from 'axios'
 import { BASE_URL } from './globals'
 import { CheckSession } from './services/Authorize'
+import UpdateTailgate from './pages/UpdateTailgate'
 
 const App = () => {
   const [authenticated, toggleAuthenticated] = useState(false)
@@ -123,6 +124,12 @@ const App = () => {
           <Route
             path="/hosttailgate/:host_id"
             element={<HostTailgate host={host} authenticated={authenticated} />}
+          />
+          <Route
+            path="/updatetailgate/:host_id"
+            element={
+              <UpdateTailgate host={host} authenticated={authenticated} />
+            }
           />
         </Routes>
       </main>
