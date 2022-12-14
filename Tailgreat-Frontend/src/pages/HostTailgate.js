@@ -55,17 +55,17 @@ const HostTailgate = () => {
           <Item>
             <img
               className="image"
-              src={tailgate.image}
+              src={tailgate?.image}
               alt="tailgate-img"
             ></img>
           </Item>
-          <Item>Tailgate Name: {tailgate.tailgateName}</Item>
-          <Item>Parking Lot: {tailgate.lot}</Item>
-          <Item>Age Required: {tailgate.age}</Item>
-          <Item>Description: {tailgate.description}</Item>
-          <Item>Food Provided: {tailgate.food}</Item>
-          <Item>Alcohol Provided: {tailgate.alcohol}</Item>
-          <Item>Games Provided: {tailgate.games}</Item>
+          <Item>Tailgate Name: {tailgate?.tailgateName}</Item>
+          <Item>Parking Lot: {tailgate?.lot}</Item>
+          <Item>Age Required: {tailgate?.age}</Item>
+          <Item>Description: {tailgate?.description}</Item>
+          <Item>Food Provided: {tailgate?.food}</Item>
+          <Item>Alcohol Provided: {tailgate?.alcohol}</Item>
+          <Item>Games Provided: {tailgate?.games}</Item>
           <Button variant="contained" onClick={() => deleteTailgate(tailgate)}>
             Delete Tailgate
           </Button>

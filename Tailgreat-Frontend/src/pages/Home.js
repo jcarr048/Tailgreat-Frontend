@@ -18,7 +18,7 @@ const Home = (props) => {
         container
         my={4}
         spacing={3}
-        columns={12}
+        rows={12}
         direction="row"
         justifyContent="center"
         alignItems="center"

@@ -39,7 +39,7 @@ const CreateTailgate = ({ host }) => {
     e.preventDefault()
     await axios.post(`${BASE_URL}/tailgates/create/${host.id}`, formValues)
     setFormValues(initialState)
-    navigate('/mytailgate')
+    navigate(`/hosttailgate/${host.id}`)
   }
 
   const theme = createTheme()

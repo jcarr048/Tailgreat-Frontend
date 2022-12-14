@@ -14,11 +14,7 @@ import RegisterUser from './pages/RegisterUser'
 import RegisterHost from './pages/RegisterHost'
 import axios from 'axios'
 import { BASE_URL } from './globals'
-import {
-  CheckSession,
-  CreateFeedback,
-  UpdateFeedback
-} from './services/Authorize'
+import { CheckSession, CreateFeedback } from './services/Authorize'
 import UpdateTailgate from './pages/UpdateTailgate'
 
 const App = () => {
@@ -26,8 +22,8 @@ const App = () => {
   const [user, setUser] = useState(null)
   const [host, setHost] = useState(null)
   const [tailgates, setTailgates] = useState([])
-  const [feedback, setFeedback] = useState(null)
-  const [editFeedback, setEditFeedback] = useState(null)
+  // const [feedback, setFeedback] = useState(null)
+  // const [editFeedback, setEditFeedback] = useState(null)
   const [selectedTailgate, setSelectedTailgate] = useState([])
 
   let navigate = useNavigate()

@@ -7,6 +7,10 @@ import Paper from '@mui/material/Paper'
 import FeedbackForm from '../components/FeedbackForm'
 
 const TailgateDetails = (props) => {
+  // const JoinTailgate = async () => {
+  //   const res = await
+  // }
+
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
@@ -17,10 +21,23 @@ const TailgateDetails = (props) => {
 
   return (
     <Box sx={{ flexGrow: 2 }}>
-      <Grid container spacing={0}>
+      <Grid
+        container
+        spacing={3}
+        my={3}
+        direction="row"
+        columns={3}
+        rows={3}
+        alignItems="center"
+        justifyContent="center"
+      >
         <Grid key={props.selectedTailgate.id}>
-          <Item className="image">
-            <img src={props.selectedTailgate.image} alt="tailgate-img"></img>
+          <Item>
+            <img
+              className="image"
+              src={props.selectedTailgate.image}
+              alt="tailgate-img"
+            ></img>
           </Item>
           <Item>{props.selectedTailgate.tailgateName}</Item>
           <Item>{props.selectedTailgate.lot}</Item>

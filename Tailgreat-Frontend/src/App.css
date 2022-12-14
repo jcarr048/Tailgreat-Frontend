@@ -1,8 +1,8 @@
 .image {
     cursor: pointer;
     object-fit: cover;
-    width: 20vw;
-    height: 20vw;
+    width: 19vh;
+    height: 19vh;
 }
 
 .header {
