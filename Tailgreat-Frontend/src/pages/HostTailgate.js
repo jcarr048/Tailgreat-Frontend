@@ -34,17 +34,30 @@ const HostTailgate = () => {
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
     ...theme.typography.body2,
-    padding: theme.spacing(2),
+    padding: theme.spacing(1),
     textAlign: 'center',
     color: theme.palette.text.secondary
   }))
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <Grid container spacing={4}>
-        <Grid item xs="auto" key={tailgate.id}>
-          <Item className="image">
-            <img src={tailgate.image} alt="tailgate-img"></img>
+      <Grid
+        container
+        spacing={3}
+        my={3}
+        direction="row"
+        columns={3}
+        rows={3}
+        alignItems="center"
+        justifyContent="center"
+      >
+        <Grid item xs zeroMinWidth key={tailgate.id}>
+          <Item>
+            <img
+              className="image"
+              src={tailgate.image}
+              alt="tailgate-img"
+            ></img>
           </Item>
           <Item>Tailgate Name: {tailgate.tailgateName}</Item>
           <Item>Parking Lot: {tailgate.lot}</Item>
