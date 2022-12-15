@@ -3,14 +3,9 @@ import * as React from 'react'
 import { experimentalStyled as styled } from '@mui/material/styles'
 import Box from '@mui/material/Box'
 import Paper from '@mui/material/Paper'
-// import { useNavigate } from 'react-router-dom'
 import FeedbackForm from '../components/FeedbackForm'
 
 const TailgateDetails = (props) => {
-  // const JoinTailgate = async () => {
-  //   const res = await
-  // }
-
   const Item = styled(Paper)(({ theme }) => ({
     backgroundColor: 'white',
     ...theme.typography.body2,
