@@ -1,4 +1,4 @@
-const BASE_URL = 'http://localhost:3001/api'
+const BASE_URL = 'https://carroll-tailgreat-backend-production.up.railway.app/api'
 
 module.exports = {
   BASE_URL
